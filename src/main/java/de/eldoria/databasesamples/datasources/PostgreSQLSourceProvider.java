@@ -12,9 +12,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class PostgreSQLSource extends DataSourceProvider<HikariDataSource> {
+public class PostgreSQLSourceProvider extends DataSourceProvider<HikariDataSource> {
 
-    public PostgreSQLSource(DbConfig.DBSettings config) throws SQLException {
+    public PostgreSQLSourceProvider(DbConfig.DBSettings config) throws SQLException {
         super(config);
     }
 

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import javax.naming.ConfigurationException;
 import java.io.IOException;
 
-class PostgreSQLSourceTest {
+class PostgreSQLSourceProviderTest {
     private static DbConfig config;
 
     @BeforeAll
@@ -19,6 +19,6 @@ class PostgreSQLSourceTest {
 
     @Test
     public void testPostgreSQL() {
-        Assertions.assertDoesNotThrow(() -> new PostgreSQLSource(config.getPostgres()));
+        Assertions.assertDoesNotThrow(() -> new PostgreSQLSourceProvider(config.getPostgres()));
     }
 }
