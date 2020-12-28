@@ -4,13 +4,17 @@
     "port": "5432",
     "database": "postgres",
     "user": "postgres",
-    "password": ""
+    "password": "",
+    "minConnections": 1,
+    "maxConnections": 10
   },
   "mariadb": {
     "address": "localhost",
     "port": "3306",
     "database": "mysql",
     "user": "root",
-    "password": ""
+    "password": "",
+    "minConnections": 1,
+    "maxConnections": 10
   }
 }

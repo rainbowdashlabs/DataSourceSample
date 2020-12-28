@@ -16,10 +16,15 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static de.eldoria.util.TestUtil.clearDatabase;
+import static de.eldoria.util.TestUtil.prepareDatabase;
+
 public class DataRequestSample {
 
     private static DbConfig config;
     private static Logger logger;
+    private static int benchmarkCalls = 25000;
+    private static int benchmarkStringLength = 5000;
 
     @BeforeAll
     public static void loadConfig() throws IOException, ConfigurationException {
@@ -45,7 +50,7 @@ public class DataRequestSample {
         }
 
         // Ignore this.
-        prepareDatabase(source);
+        prepareDatabase(source, logger);
 
         // Now we have a data source. This source will allow us to use a connection pool.
         // It will also provide us usable connections and make them reusable instead of creating a new connection every time.
@@ -124,24 +129,6 @@ public class DataRequestSample {
             return;
         }
 
-        clearDatabase(source);
-    }
-
-    private void prepareDatabase(DataSource source) {
-        try (Connection conn = source.getConnection(); PreparedStatement stmt
-                = conn.prepareStatement("CREATE TABLE IF NOT EXISTS some_table(id int not null , message text not null)")) {
-            stmt.execute();
-        } catch (SQLException e) {
-            logger.log(Level.WARNING, "Could not prepare database.", e);
-        }
-    }
-
-    private void clearDatabase(DataSource source) {
-        try (Connection conn = source.getConnection(); PreparedStatement stmt
-                = conn.prepareStatement("drop table some_table")) {
-            stmt.execute();
-        } catch (SQLException e) {
-            logger.log(Level.WARNING, "Could not clear database.", e);
-        }
+        clearDatabase(source, logger);
     }
 }

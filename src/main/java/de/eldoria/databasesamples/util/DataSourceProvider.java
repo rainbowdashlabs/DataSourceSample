@@ -13,11 +13,7 @@ public abstract class DataSourceProvider<T extends DataSource> {
     public DataSourceProvider(DbConfig.DBSettings config) throws SQLException {
         this.config = config;
         this.source = initSource();
-        if (testConnection(source)) {
-            System.out.printf("Data Source %s successfully connected.", getClass().getSimpleName());
-        } else {
-            System.out.printf("Data source %s connection failed.", getClass().getSimpleName());
-        }
+        testConnection(source);
     }
 
     protected abstract T initSource();

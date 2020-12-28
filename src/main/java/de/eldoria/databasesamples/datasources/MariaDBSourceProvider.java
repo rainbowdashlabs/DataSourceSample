@@ -30,6 +30,7 @@ public class MariaDBSourceProvider extends DataSourceProvider<HikariDataSource> 
         HikariConfig config = new HikariConfig(props);
 
         config.setMaximumPoolSize(getConfig().getMaxConnections());
+        config.setConnectionTimeout(5 * 60 * 1000);
 
         return new HikariDataSource(config);
     }
