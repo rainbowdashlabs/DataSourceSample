@@ -1,6 +1,6 @@
-package de.eldoria.datasourcesample;
+package de.eldoria.databasesamples.util;
 
-import de.eldoria.datasourcesample.config.DbConfig;
+import de.eldoria.databasesamples.config.DbConfig;
 
 import java.sql.SQLException;
 import java.util.Properties;

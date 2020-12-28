@@ -1,6 +1,6 @@
-package de.eldoria.datasourcesample;
+package de.eldoria.databasesamples.util;
 
-import de.eldoria.datasourcesample.config.DbConfig;
+import de.eldoria.databasesamples.config.DbConfig;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -20,7 +20,7 @@ public abstract class DataSourceProvider<T extends DataSource> {
         }
     }
 
-    public abstract T initSource();
+    protected abstract T initSource();
 
     /**
      * Close the data pool and all underlying connections.

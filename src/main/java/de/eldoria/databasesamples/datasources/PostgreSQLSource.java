@@ -1,11 +1,11 @@
-package de.eldoria.datasourcesample.samples;
+package de.eldoria.databasesamples.datasources;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import de.eldoria.datasourcesample.DataSourceProvider;
-import de.eldoria.datasourcesample.DbUtil;
-import de.eldoria.datasourcesample.config.DatabaseType;
-import de.eldoria.datasourcesample.config.DbConfig;
+import de.eldoria.databasesamples.util.DataSourceProvider;
+import de.eldoria.databasesamples.util.DbUtil;
+import de.eldoria.databasesamples.config.DatabaseType;
+import de.eldoria.databasesamples.config.DbConfig;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -19,7 +19,7 @@ public class PostgreSQLSource extends DataSourceProvider<HikariDataSource> {
     }
 
     @Override
-    public HikariDataSource initSource() {
+    protected HikariDataSource initSource() {
         Properties props = new Properties();
         props.setProperty("dataSourceClassName", DatabaseType.POSTGRESQL.getDriverClass());
         DbUtil.mapSettings(props, getConfig());

@@ -1,7 +1,7 @@
-package de.eldoria.datasourcesample.samples;
+package de.eldoria.databasesamples.datasources;
 
-import de.eldoria.datasourcesample.config.DbConfig;
-import de.eldoria.datasourcesample.util.TestUtil;
+import de.eldoria.databasesamples.config.DbConfig;
+import de.eldoria.util.TestUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

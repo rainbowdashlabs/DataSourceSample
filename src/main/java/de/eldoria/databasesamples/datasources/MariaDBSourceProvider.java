@@ -1,24 +1,29 @@
-package de.eldoria.datasourcesample.samples;
+package de.eldoria.databasesamples.datasources;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import de.eldoria.datasourcesample.DataSourceProvider;
-import de.eldoria.datasourcesample.DbUtil;
-import de.eldoria.datasourcesample.config.DatabaseType;
-import de.eldoria.datasourcesample.config.DbConfig;
+import de.eldoria.databasesamples.config.DatabaseType;
+import de.eldoria.databasesamples.config.DbConfig;
+import de.eldoria.databasesamples.util.DataSourceProvider;
+import de.eldoria.databasesamples.util.DbUtil;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class MariaDBSource extends DataSourceProvider<HikariDataSource> {
-    public MariaDBSource(DbConfig.DBSettings config) throws SQLException {
+/**
+ * MariaDB driver.
+ * <p>
+ * Utilized HikariCP for connection pooling.
+ */
+public class MariaDBSourceProvider extends DataSourceProvider<HikariDataSource> {
+    public MariaDBSourceProvider(DbConfig.DBSettings config) throws SQLException {
         super(config);
     }
 
     @Override
-    public HikariDataSource initSource() {
+    protected HikariDataSource initSource() {
         Properties props = new Properties();
         props.setProperty("dataSourceClassName", DatabaseType.MARIADB.getDriverClass());
         DbUtil.mapSettings(props, getConfig());
@@ -31,7 +36,7 @@ public class MariaDBSource extends DataSourceProvider<HikariDataSource> {
 
     @Override
     protected void close(HikariDataSource source) {
-
+        source.close();
     }
 
     @Override

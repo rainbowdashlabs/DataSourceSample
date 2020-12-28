@@ -1,7 +1,7 @@
-package de.eldoria.datasourcesample.util;
+package de.eldoria.util;
 
 import com.google.gson.Gson;
-import de.eldoria.datasourcesample.config.DbConfig;
+import de.eldoria.databasesamples.config.DbConfig;
 
 import javax.naming.ConfigurationException;
 import java.io.File;
