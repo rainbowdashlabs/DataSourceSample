@@ -8,10 +8,7 @@ import de.eldoria.datasourcesample.config.DatabaseType;
 import de.eldoria.datasourcesample.config.DbConfig;
 
 import javax.sql.DataSource;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -40,7 +37,7 @@ public class MariaDBSource extends DataSourceProvider<HikariDataSource> {
     @Override
     protected boolean testConnection(DataSource source) throws SQLException {
         try (Connection conn = source.getConnection()) {
-            return conn.isValid(5*1000);
+            return conn.isValid(5 * 1000);
         }
     }
 }

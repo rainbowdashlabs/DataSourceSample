@@ -15,7 +15,7 @@ public final class DbUtil {
                 + "VendorError: " + ex.getErrorCode();
     }
 
-    public static void mapSettings(Properties props, DbConfig.DBSettings settings){
+    public static void mapSettings(Properties props, DbConfig.DBSettings settings) {
         props.setProperty("dataSource.serverName", settings.getAddress());
         props.setProperty("dataSource.portNumber", settings.getPort());
         props.setProperty("dataSource.user", settings.getUser());

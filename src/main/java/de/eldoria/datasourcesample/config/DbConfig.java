@@ -18,8 +18,8 @@ public class DbConfig {
         private String database;
         private String user;
         private String password;
-        private int minConnections = 1;
-        private int maxConnections = 10;
+        private final int minConnections = 1;
+        private final int maxConnections = 10;
 
         public String getAddress() {
             return address;
