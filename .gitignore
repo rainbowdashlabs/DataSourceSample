@@ -99,4 +99,4 @@ target/
 dependency-reduced-pom.xml
 
 # Remove config
-config/
+/config/

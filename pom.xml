@@ -7,6 +7,7 @@
     <groupId>de.eldoria</groupId>
     <artifactId>DataBaseSamples</artifactId>
     <version>1.0</version>
+    
     <build>
         <plugins>
             <plugin>
