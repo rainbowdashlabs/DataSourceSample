@@ -1,8 +1,8 @@
 package de.eldoria.databasesamples.config;
 
 public class DbConfig {
-    public DBSettings postgres;
-    public DBSettings mariadb;
+    private DBSettings postgres;
+    private DBSettings mariadb;
 
     public DBSettings getPostgres() {
         return postgres;
